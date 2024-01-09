@@ -1,0 +1,50 @@
+{
+    "name": "auto-s3-deploy",
+    "version": "0.0.1",
+    "description": "simplify the aws s3 deployment process",
+    "bin": "bin/cli.js",
+    "scripts": {
+        "test": "node test/index.js --test",
+        "test-help": "node test/index.js --help",
+        "test-complete": "node test/index.js",
+        "pack": "node test/index.js --pack",
+        "build": "tsc -p .",
+        "_init": "node test/index.js --init",
+        "_debug": "node test/index.js --debug",
+        "_clear": "node test/index.js --clear"
+    },
+    "files": [
+        "bin/cli.js"
+    ],
+    "engines": {
+        "node": ">=8.0"
+    },
+    "keywords": [
+        "auto",
+        "aws",
+        "s3",
+        "sync",
+        "deploy"
+    ],
+    "author": "4006wayne",
+    "license": "ISC",
+    "dependencies": {
+        "aws-sdk": "^2.543.0",
+        "cli": "^1.0.1",
+        "inquirer": "^7.0.0",
+        "md5-file": "^4.0.0",
+        "mime-types": "^2.1.24",
+        "prettier": "^1.18.2",
+        "simple-git": "^1.126.0"
+    },
+    "devDependencies": {
+        "@types/prettier": "^1.18.3",
+        "@types/mime-types": "^2.1.0",
+        "@types/cli": "^0.11.19",
+        "@types/node": "^12.7.9",
+        "@types/md5-file": "^4.0.0",
+        "@types/inquirer": "^6.5.0",
+        "ts-node": "^8.1.0",
+        "typescript": "^3.6.3"
+    }
+}

@@ -1,0 +1,22 @@
+{
+    "compilerOptions": {
+        "target": "esnext",
+        "module": "commonjs",
+        "lib": [
+            "es6",
+            "es2015",
+            "dom"
+        ],
+        "strict": true,
+        "noImplicitAny": false,
+        "outDir": ".",
+        "types": [
+            "node"
+        ],
+        "sourceMap": true,
+        "esModuleInterop": true,
+        "resolveJsonModule": true,
+        "allowSyntheticDefaultImports": true
+    },
+    "exclude": []
+}
