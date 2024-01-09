@@ -1,6 +1,6 @@
 {
     "name": "auto-s3-deploy",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "simplify the aws s3 deployment process",
     "bin": "bin/cli.js",
     "scripts": {
@@ -12,6 +12,10 @@
         "_init": "node test/index.js --init",
         "_debug": "node test/index.js --debug",
         "_clear": "node test/index.js --clear"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/wjdesign/auto-s3-deploy"
     },
     "files": [
         "bin/cli.js"
@@ -46,5 +50,9 @@
         "@types/inquirer": "^6.5.0",
         "ts-node": "^8.1.0",
         "typescript": "^3.6.3"
-    }
+    },
+    "bugs": {
+        "url": "https://github.com/wjdesign/auto-s3-deploy/issues"
+    },
+    "homepage": "https://github.com/wjdesign/auto-s3-deploy"
 }

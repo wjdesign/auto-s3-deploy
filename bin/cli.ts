@@ -28,6 +28,7 @@ type DeployCfg = {
         bucket: string,
         source: string,
         to: string,
+        acl?: string
     },
     cloudFront?: CloudFront | CloudFront[]
 }
@@ -311,7 +312,7 @@ async function start () {
                 const fileStream = fs.createReadStream( localFilePaths[ buckPath ] )
                 const mimeType = mime.lookup( buckPath )
                 const upload: aws.S3.ManagedUpload = s3.upload( {
-                    Bucket: options.bucket, Key: buckPath, Body: fileStream, ACL: 'public-read', ContentType: mimeType !== false ? mimeType : ''
+                    Bucket: options.bucket, Key: buckPath, Body: fileStream, ACL: options.acl || undefined, ContentType: mimeType !== false ? mimeType : ''
                 } )
                 upload.on( 'httpUploadProgress', ( progress: aws.S3.ManagedUpload.Progress ) => {
 
@@ -390,6 +391,7 @@ function deployCfgToOpt ( {
     if ( s3.bucket ) opt.bucket = s3.bucket
     if ( s3.to ) opt.deployTo = s3.to
     if ( s3.source ) opt.source = s3.source
+    if ( s3.acl ) opt.source = s3.acl
     if ( cloudFront ) {
 
         opt.invalids = cloudFront instanceof Array ?

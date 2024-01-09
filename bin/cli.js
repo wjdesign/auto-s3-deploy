@@ -196,7 +196,7 @@ async function start() {
                 const fileStream = fs_1.default.createReadStream(localFilePaths[buckPath]);
                 const mimeType = mime_types_1.default.lookup(buckPath);
                 const upload = s3.upload({
-                    Bucket: options.bucket, Key: buckPath, Body: fileStream, ACL: 'public-read', ContentType: mimeType !== false ? mimeType : ''
+                    Bucket: options.bucket, Key: buckPath, Body: fileStream, ACL: options.acl || undefined, ContentType: mimeType !== false ? mimeType : ''
                 });
                 upload.on('httpUploadProgress', (progress) => {
                     cli_1.default.progress((i + (progress.loaded / progress.total)) / localFileCount);
@@ -250,6 +250,8 @@ function deployCfgToOpt({ aws, s3, cloudFront }, opt) {
         opt.deployTo = s3.to;
     if (s3.source)
         opt.source = s3.source;
+    if (s3.acl)
+        opt.source = s3.acl;
     if (cloudFront) {
         opt.invalids = cloudFront instanceof Array ?
             cloudFront.map((v) => ({ distId: v.distributionId, invalidPaths: v.invalidation.paths })) :

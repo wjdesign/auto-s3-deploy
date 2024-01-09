@@ -104,7 +104,8 @@ deploy.json 的格式如下
         "region": "...",
         "bucket": "...",
         "source": "...",
-        "to": "..."
+        "to": "...",
+        "acl": "..."
       },
       "cloudFront": {
         "distributionId": "...",
@@ -117,6 +118,8 @@ deploy.json 的格式如下
 ```
 
 您也可以手動創建該檔案
+
+> **`acl`允許的值有以下：`private`、`public-read`、`public-read-write`、`authenticated-read`、`aws-exec-read`、`bucket-owner-read`、`bucket-owner-full-control`**
 
 ## 選擇要使用的設定集
 
@@ -171,7 +174,8 @@ auto-s3-deploy --key 1234 --secret 4567
      "region": "us-east-1",
      "bucket": "test.com",
      "source": ".",
-     "to": "."
+     "to": ".",
+     "acl": "public-read"
    },
    "cloudFront": {
      "distributionId": "1A2B3A4D",
@@ -192,7 +196,8 @@ auto-s3-deploy --key 1234 --secret 4567
     "region": "us-east-1",
     "bucket": "test.com",
     "source": ".",
-    "to": "."
+    "to": ".",
+    "acl": "public-read"
   },
   "cloudFront": {
     "distributionId": "1A2B3A4D",
@@ -215,7 +220,8 @@ auto-s3-deploy --key 1234 --secret 4567
     "region": "us-east-1",
     "bucket": "test.com",
     "source": ".",
-    "to": "."
+    "to": ".",
+    "acl": "public-read"
   }
 }
 ```
@@ -238,7 +244,8 @@ cover-deploy.json 裡面的資料結構跟 deploy.json 一模一樣，
     "region": "us-east-1",
     "bucket": "test.com",
     "source": ".",
-    "to": "."
+    "to": ".",
+    "acl": "public-read"
   },
   "cloudFront": {
     "distributionId": "1A2B3A4D",
@@ -270,7 +277,8 @@ cover-deploy.json 裡面的資料結構跟 deploy.json 一模一樣，
     "region": "us-east-1",
     "bucket": "test.com",
     "source": ".",
-    "to": "."
+    "to": ".",
+    "acl": "public-read"
   },
   "cloudFront": {
     "distributionId": "1A2B3A4D",
